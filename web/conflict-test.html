@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Widget isolation test</title>
+<style>
+  /* Deliberately hostile site CSS: the widget must look the same here as on the clean page. */
+  *{font-family:'Comic Sans MS',cursive !important;color:#0a0 !important}
+  button{background:#f0f !important;border-radius:0 !important;padding:30px !important}
+  input{border:6px dashed red !important;height:80px !important}
+  div,p,span,ul,li,h3,a{text-transform:uppercase !important;letter-spacing:6px !important}
+  body{background:#222}
+</style></head>
+<body>
+<h1>Isolation test page</h1>
+<p>Host-page CSS above is intentionally aggressive. The chat widget uses Shadow DOM, so its inner elements should not change.</p>
+<script src="/widget.js" data-api="/api/v1"></script>
+</body></html>
