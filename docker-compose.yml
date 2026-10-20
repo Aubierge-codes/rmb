@@ -1,0 +1,79 @@
+# RMB AI Chatbot prototype. Start:  cp .env.example .env  &&  docker compose up -d --build
+# Load documents:                   docker compose --profile tools run --rm ingest
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: rmb
+      POSTGRES_USER: rmb
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rmb -d rmb"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  case:
+    build: ./case-service
+    environment:
+      DB_DSN: pgsql:host=db;port=5432;dbname=rmb
+      DB_USER: rmb
+      DB_PASSWORD: ${DB_PASSWORD}
+      SERVICE_KEY: ${SERVICE_KEY}
+      DEMO_ADMIN_PASSWORD: ${DEMO_ADMIN_PASSWORD}
+      DEMO_OFFICER_PASSWORD: ${DEMO_OFFICER_PASSWORD}
+    depends_on:
+      db:
+        condition: service_healthy
+
+  ai:
+    build: ./ai-service
+    environment:
+      DATABASE_URL: postgresql://rmb:${DB_PASSWORD}@db:5432/rmb
+      CASE_API_URL: http://case:8080
+      SERVICE_KEY: ${SERVICE_KEY}
+      LLM_PROVIDER: ${LLM_PROVIDER:-extractive}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-2.5-flash}
+      LLM_MODEL: ${LLM_MODEL:-claude-sonnet-5-5}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-*}
+    depends_on:
+      db:
+        condition: service_healthy
+      case:
+        condition: service_started
+
+  ingest:
+    build: ./ai-service
+    profiles: ["tools"]
+    command: ["python", "-m", "ingest.ingest", "--pdf-dir", "/app/downloads"]
+    environment:
+      DATABASE_URL: postgresql://rmb:${DB_PASSWORD}@db:5432/rmb
+      CASE_API_URL: http://case:8080
+      SERVICE_KEY: ${SERVICE_KEY}
+    volumes:
+      - ./downloads:/app/downloads
+    depends_on:
+      db:
+        condition: service_healthy
+      case:
+        condition: service_started
+
+  nginx:
+    image: nginx:1.27-alpine
+    ports:
+      - "${HTTP_PORT:-8088}:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./web:/usr/share/nginx/html:ro
+      - ./widget:/usr/share/nginx/widget:ro
+    depends_on:
+      - ai
+      - case
+
+volumes:
+  pgdata:
