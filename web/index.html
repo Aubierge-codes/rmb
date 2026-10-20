@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mock RMB page: chatbot embedding demo</title>
+<style>
+  body{margin:0;font:16px/1.6 system-ui,'Segoe UI',Arial,sans-serif;color:#1b2430;background:#fff}
+  .banner{background:#fff4ce;border-bottom:1px solid #e0c36a;padding:8px 24px;font-size:14px}
+  header{background:#1f3864;color:#fff;padding:18px 24px}header h1{margin:0;font-size:22px}
+  nav{background:#2f5496;padding:10px 24px}nav a{color:#fff;margin-right:20px;text-decoration:none}
+  main{max-width:900px;margin:0 auto;padding:24px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .card{border:1px solid #d7dde6;padding:16px;border-radius:6px;background:#f9fafc}
+  code{background:#f0f2f5;padding:2px 5px;border-radius:3px}
+</style>
+</head>
+<body>
+<div class="banner"><strong>Mock page for demonstration.</strong> This is not the official RMB website. It shows how the chatbot appears when embedded in a site such as RMB's TYPO3 website.</div>
+<header><h1>Rwanda Mines, Petroleum and Gas Board (mock page)</h1></header>
+<nav><a href="#">Home</a><a href="#">Investment</a><a href="#">Licensing</a><a href="#">Publications</a><a href="#">Contact</a></nav>
+<main>
+  <h2>Welcome</h2>
+  <p>This placeholder page stands in for RMB's website. The chat button at the bottom right is the embedded assistant.</p>
+  <div class="grid">
+    <div class="card"><h3>Investors</h3><p>Opportunities in minerals, petroleum and gas.</p></div>
+    <div class="card"><h3>Licensing</h3><p>License types, procedures and obligations.</p></div>
+    <div class="card"><h3>Public</h3><p>Safety, community engagement and complaints.</p></div>
+  </div>
+  <h2>Try these</h2>
+  <ul>
+    <li>What types of mining licenses are there?</li>
+    <li>I would like to request a meeting with RMB</li>
+    <li>I want to file a complaint</li>
+    <li>I want to report illegal mining</li>
+    <li>Can you interpret this article legally for me?</li>
+    <li>There has been a collapse and people are trapped</li>
+  </ul>
+  <h2>Embedding snippet</h2>
+  <p>In TYPO3, paste this into an HTML content element (or add it to the page template):</p>
+  <pre><code>&lt;script src="https://HOST/widget.js" data-api="https://HOST/api/v1" data-lang="en"&gt;&lt;/script&gt;</code></pre>
+</main>
+<script src="/widget.js" data-api="/api/v1" data-lang="en"></script>
+</body>
+</html>
