@@ -1,0 +1,23 @@
+{
+  "_note": "The six sources RMB has shared so far. Owners, versions and law numbers are NOT confirmed. Law numbers are read from file names only.",
+  "sources": [
+    {"id": "lake-kivu-prospectus", "title": "Lake Kivu Basin investment prospectus", "category": "promotion", "kind": "pdf_pages",
+     "url": "https://www.rmb.gov.rw/fileadmin/user_upload/RMB/Investment_Prospectus/LAKE_KIVU_BASIN_No_Reference.pdf",
+     "owner": "To be confirmed by RMB", "version": "As downloaded", "effective_date": null, "review_date": null, "status": "unverified"},
+    {"id": "rmb-prospectus-2025", "title": "Revised RMB Investment Prospectus, October 2025", "category": "promotion", "kind": "pdf_pages",
+     "url": "https://www.rmb.gov.rw/fileadmin/user_upload/RMB/Investment_Prospectus/Revised_RMB_Investment_Prospectus__October_2025.pdf",
+     "owner": "To be confirmed by RMB", "version": "October 2025", "effective_date": "2025-10-01", "review_date": null, "status": "unverified"},
+    {"id": "mining-quarry-law", "title": "Law on mining and quarry operations (file name indicates Law n° 072/2024 of 26/06/2024; to be confirmed)", "category": "regulatory", "kind": "pdf_articles",
+     "url": "https://www.rmb.gov.rw/fileadmin/user_upload/RMB/Publications/Laws/Law_n___0722024of_26062024_on_mining_and_quarry_operations.pdf",
+     "owner": "RMB legal unit (to be confirmed)", "version": "As downloaded", "effective_date": "2024-06-26", "review_date": null, "status": "unverified"},
+    {"id": "tax-on-minerals-law", "title": "Law establishing tax on minerals (file name indicates Law n° 056/2024 of 26/06/2024; to be confirmed)", "category": "regulatory", "kind": "pdf_articles",
+     "url": "https://www.rmb.gov.rw/fileadmin/user_upload/RMB/Publications/Laws/Law_no_0562024of_26062024_establishing_tax_on_minerals.pdf",
+     "owner": "RMB legal unit (to be confirmed)", "version": "As downloaded", "effective_date": "2024-06-26", "review_date": null, "status": "unverified"},
+    {"id": "petroleum-law", "title": "Petroleum law (number and date to be confirmed)", "category": "regulatory", "kind": "pdf_articles",
+     "url": "https://www.rmb.gov.rw/fileadmin/user_upload/RMB/Publications/Laws/Petroleum_Law_230628_221132.pdf",
+     "owner": "RMB legal unit (to be confirmed)", "version": "As downloaded", "effective_date": null, "review_date": null, "status": "unverified"},
+    {"id": "geohazards-page", "title": "RMB geohazards monitoring web page", "category": "public_info", "kind": "web",
+     "url": "https://www.rmb.gov.rw/geohazardsmonitoring",
+     "owner": "To be confirmed by RMB", "version": "Live page (refresh manually)", "effective_date": null, "review_date": null, "status": "unverified"}
+  ]
+}
