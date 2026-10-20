@@ -1,6 +1,4 @@
 # --- Secrets and local configuration (NEVER commit) ---
-.env
-.env.*
 !.env.example
 
 # --- Private or large source documents (keep local, share through a private channel) ---
@@ -25,5 +23,10 @@ venv/
 *.log
 .DS_Store
 Thumbs.db
-.vscode/
 .idea/
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore
+config.bat
+node_modules
