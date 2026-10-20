@@ -1,0 +1,24 @@
+{
+  "sources": [
+    {
+      "id": "test-law",
+      "title": "SYNTHETIC TEST LAW (not RMB content)",
+      "category": "regulatory",
+      "kind": "pdf_articles",
+      "url": "https://example.invalid/test-law",
+      "owner": "Test fixture",
+      "version": "test",
+      "status": "unverified"
+    },
+    {
+      "id": "test-prospectus",
+      "title": "SYNTHETIC TEST PROSPECTUS (not RMB content)",
+      "category": "promotion",
+      "kind": "pdf_pages",
+      "url": "https://example.invalid/test-prospectus",
+      "owner": "Test fixture",
+      "version": "test",
+      "status": "unverified"
+    }
+  ]
+}
